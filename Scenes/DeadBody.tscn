@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bajqgbi3igwi0"]
+
+[ext_resource type="Script" path="res://Scripts/deadBody.gd" id="1_00arp"]
+[ext_resource type="Texture2D" uid="uid://cyllaw2hnxpxw" path="res://Assets/Pixel Adventure 1/Main Characters/Pink Man/Idle (32x32).png" id="1_0hxgk"]
+[ext_resource type="FontFile" uid="uid://lfbmq3g4y0pv" path="res://Assets/Fonts/Retro Gaming.ttf" id="2_pfqag"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldvom"]
+bg_color = Color(0.984314, 0.87451, 0.694118, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nitc"]
+size = Vector2(21, 27)
+
+[node name="DeadBody" type="StaticBody2D"]
+rotation = 1.5708
+scale = Vector2(4, 4)
+script = ExtResource("1_00arp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0hxgk")
+region_enabled = true
+region_rect = Rect2(161.979, 0, 30.5338, 32)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -4.25001
+offset_top = -3.99998
+offset_right = 358.75
+offset_bottom = 14.0
+scale = Vector2(0.0270942, 0.279271)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldvom")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -5.50003
+offset_top = -8.99998
+offset_right = 34.5
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pfqag")
+theme_override_font_sizes/font_size = 10
+text = "x"
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 0.249968
+offset_top = -9.0
+offset_right = 40.25
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pfqag")
+theme_override_font_sizes/font_size = 10
+text = "x"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_2nitc")

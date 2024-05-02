@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://drnmwaa576e7x"]
+
+[ext_resource type="FontFile" uid="uid://lfbmq3g4y0pv" path="res://Assets/Fonts/Retro Gaming.ttf" id="1_2nm6r"]
+[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_oo0md"]
+[ext_resource type="FontFile" uid="uid://8gqfq5jfyc7p" path="res://Assets/Fonts/GothicPixels.ttf" id="2_0kdpq"]
+[ext_resource type="Texture2D" uid="uid://cis13iwxsoor5" path="res://Skull_HD.png" id="4_tjluq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2ibb"]
+bg_color = Color(0.705887, 0.705887, 0.705887, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17ans"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qxey"]
+bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlyg1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo0md")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2ibb")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -369.0
+offset_top = 106.0
+offset_right = 418.0
+offset_bottom = 257.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.140447, 0.140447, 0.140447, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_0kdpq")
+theme_override_font_sizes/font_size = 150
+text = "Sacrificio"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 442.0
+offset_right = 649.0
+offset_bottom = 489.0
+theme_override_fonts/font = ExtResource("1_2nm6r")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_17ans")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1qxey")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rlyg1")
+text = " JUGAR "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(260, 310)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_tjluq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(927, 310)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_tjluq")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

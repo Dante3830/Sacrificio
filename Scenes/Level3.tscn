@@ -1,0 +1,935 @@
+[gd_scene load_steps=12 format=3 uid="uid://f1ep6m3vq0pf"]
+
+[ext_resource type="Script" path="res://Scripts/levelThree.gd" id="1_7jp7d"]
+[ext_resource type="Texture2D" uid="uid://x4iybcw4hr17" path="res://Assets/Pixel Adventure 1/Background/Gray.png" id="2_dwev8"]
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="3_hctaa"]
+[ext_resource type="Texture2D" uid="uid://b3odia5s5wldy" path="res://Assets/Pixel Adventure 1/Traps/Spikes/Idle.png" id="4_mghgc"]
+[ext_resource type="PackedScene" uid="uid://dcsjry78h7ydd" path="res://Scenes/Finish.tscn" id="5_d5ens"]
+[ext_resource type="PackedScene" uid="uid://dbb3ba5v5bpcf" path="res://Scenes/Enemy.tscn" id="5_m72qw"]
+[ext_resource type="PackedScene" uid="uid://bbg0ixae2i2p0" path="res://Scenes/Player.tscn" id="6_026tn"]
+[ext_resource type="FontFile" uid="uid://bqyafdxot38ao" path="res://Assets/Fonts/Kouryuu.ttf" id="7_3coxh"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="7_b742t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6almn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03ng2"]
+size = Vector2(40, 40)
+
+[node name="Level3" type="Node"]
+script = ExtResource("1_7jp7d")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 17.0
+offset_right = 57.0
+offset_bottom = 40.0
+
+[node name="Lives" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_3coxh")
+theme_override_font_sizes/font_size = 30
+text = "Vidas: "
+
+[node name="LivesDP" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 110.0
+offset_right = 213.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_3coxh")
+theme_override_font_sizes/font_size = 30
+text = "5"
+
+[node name="Clock" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 507.0
+offset_right = 548.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_3coxh")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+
+[node name="BACKGROUND" type="Node2D" parent="."]
+position = Vector2(-1283, -625)
+scale = Vector2(2, 2)
+
+[node name="Background" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(81.5, 83)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background2" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(465.5, 83)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background2"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background2"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background2"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background2"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background3" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(849.5, 83)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background3"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background3"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background3"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background3"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background4" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(1233, 83)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background4"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background4"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background4"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background4"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background5" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(81.5, 464)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background5"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background5"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background5"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background5"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background6" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(465.5, 464)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background6"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background6"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background6"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background6"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background7" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(849.5, 464)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background7"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background7"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background7"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background7"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background8" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(1233, 464)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background8"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background8"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background8"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background8"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background9" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(81.5, 845)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background9"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background9"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background9"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background9"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background13" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(-302.5, 845)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background13"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background13"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background13"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background13"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background14" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(-302.5, 465)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background14"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background14"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background14"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background14"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background15" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(-302.5, 84.5)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background15"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background15"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background15"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background15"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background10" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(465.5, 845)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background10"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background10"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background10"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background10"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background11" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(849.5, 845)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background11"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background11"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background11"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background11"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Background12" type="Node2D" parent="BACKGROUND"]
+texture_filter = 1
+position = Vector2(1233, 845)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND/Background12"]
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BACKGROUND/Background12"]
+position = Vector2(64, 0)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BACKGROUND/Background12"]
+position = Vector2(64, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BACKGROUND/Background12"]
+position = Vector2(0, 63)
+texture = ExtResource("2_dwev8")
+
+[node name="PLATFORMS" type="Node2D" parent="."]
+
+[node name="Platform" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-487, 303)
+scale = Vector2(12.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform2" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-1077, 1359)
+rotation = -1.5708
+scale = Vector2(120.345, 1.00021)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform2"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform2"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform3" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-454, 1280)
+scale = Vector2(3.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform3"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform3"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform4" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(298, 1128)
+scale = Vector2(3.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform4"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform4"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform11" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(473, 1059)
+scale = Vector2(3.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform11"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform11"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform12" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(670, 993)
+scale = Vector2(3.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform12"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform12"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform5" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-717, 461)
+scale = Vector2(3.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform5"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform5"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform6" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-24, 713)
+scale = Vector2(15.6, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform6"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform6"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform13" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-562, 631)
+scale = Vector2(12.72, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform13"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform13"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform7" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(55, 266)
+scale = Vector2(14.88, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform7"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform7"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform8" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(884, 331)
+rotation = 1.5708
+scale = Vector2(16.4, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform8"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform8"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform9" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-275, 1187)
+scale = Vector2(13.36, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform9"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform9"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform10" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(-1073, 1319)
+scale = Vector2(14.48, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform10"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform10"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="Platform14" type="StaticBody2D" parent="PLATFORMS"]
+position = Vector2(714, 46)
+scale = Vector2(14.48, 1)
+
+[node name="Panel" type="Panel" parent="PLATFORMS/Platform14"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6almn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLATFORMS/Platform14"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_03ng2")
+
+[node name="TRAPS" type="Node2D" parent="."]
+position = Vector2(2, 597)
+scale = Vector2(10.96, 1)
+
+[node name="Traps" type="Node2D" parent="TRAPS"]
+position = Vector2(-116.971, 49)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps"]
+position = Vector2(863, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps"]
+position = Vector2(929, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Traps6" type="Node2D" parent="TRAPS"]
+position = Vector2(-48.3577, -102)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps6"]
+position = Vector2(863, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps6/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps6/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps6"]
+position = Vector2(929, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps6/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps6/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Traps7" type="Node2D" parent="TRAPS"]
+position = Vector2(-32.573, -170)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps7"]
+position = Vector2(863, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps7/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps7/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps7"]
+position = Vector2(929, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps7/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps7/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Traps8" type="Node2D" parent="TRAPS"]
+position = Vector2(-14.5073, -238)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps8"]
+position = Vector2(863, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps8/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps8/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps8"]
+position = Vector2(929, 603)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps8/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps8/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Traps3" type="Node2D" parent="TRAPS"]
+position = Vector2(-58.9416, -648)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(731, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(796, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes3" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(862, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes3"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes3"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes4" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(929, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes4"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes4"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes5" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(995, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes5"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes5"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes6" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(1064, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes6"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes6"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes7" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(1133, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes7"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes7"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes8" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(1200, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes8"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes8"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes9" type="Area2D" parent="TRAPS/Traps3"]
+position = Vector2(1265, 285)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps3/Spikes9"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps3/Spikes9"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Traps5" type="Node2D" parent="TRAPS"]
+position = Vector2(-95.8943, -599)
+scale = Vector2(0.0912409, 1)
+
+[node name="Spikes" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(863, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes2" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(930, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes2"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes3" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(522, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes3"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes3"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes4" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(588, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes4"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes4"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes5" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(656, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes5"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes5"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes6" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(724, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes6"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes6"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="Spikes7" type="Area2D" parent="TRAPS/Traps5"]
+position = Vector2(794, 601)
+script = ExtResource("3_hctaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="TRAPS/Traps5/Spikes7"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_mghgc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TRAPS/Traps5/Spikes7"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(0.75, 4.25, 1.75, 3.25, 3.5, 1, 5.25, 3.25, 7.25, 8, -8, 8, -6.25, 3.25, -4.5, 1.25, -2.75, 3.25, -1.75, 4.25)
+
+[node name="ENEMIES" type="Node" parent="."]
+
+[node name="Enemy" parent="ENEMIES" instance=ExtResource("5_m72qw")]
+position = Vector2(-8, 258)
+
+[node name="Enemy2" parent="ENEMIES" instance=ExtResource("5_m72qw")]
+position = Vector2(195, 1134)
+
+[node name="Finish" parent="." instance=ExtResource("5_d5ens")]
+position = Vector2(1201, -114)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("Player")]
+position = Vector2(-972, 1106)
+position_smoothing_enabled = true
+script = ExtResource("7_b742t")
+Player = NodePath("../Player")
+smoothing = true
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("6_026tn")]
+position = Vector2(-969, 1206)
+
+[connection signal="body_entered" from="TRAPS/Traps/Spikes" to="TRAPS/Traps/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps/Spikes2" to="TRAPS/Traps/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps6/Spikes" to="TRAPS/Traps6/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps6/Spikes2" to="TRAPS/Traps6/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps7/Spikes" to="TRAPS/Traps7/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps7/Spikes2" to="TRAPS/Traps7/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps8/Spikes" to="TRAPS/Traps8/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps8/Spikes2" to="TRAPS/Traps8/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes" to="TRAPS/Traps3/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes2" to="TRAPS/Traps3/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes3" to="TRAPS/Traps3/Spikes3" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes4" to="TRAPS/Traps3/Spikes4" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes5" to="TRAPS/Traps3/Spikes5" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes6" to="TRAPS/Traps3/Spikes6" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes7" to="TRAPS/Traps3/Spikes7" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes8" to="TRAPS/Traps3/Spikes8" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps3/Spikes9" to="TRAPS/Traps3/Spikes9" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes" to="TRAPS/Traps5/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes2" to="TRAPS/Traps5/Spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes3" to="TRAPS/Traps5/Spikes3" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes4" to="TRAPS/Traps5/Spikes4" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes5" to="TRAPS/Traps5/Spikes5" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes6" to="TRAPS/Traps5/Spikes6" method="_on_body_entered"]
+[connection signal="body_entered" from="TRAPS/Traps5/Spikes7" to="TRAPS/Traps5/Spikes7" method="_on_body_entered"]
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]
